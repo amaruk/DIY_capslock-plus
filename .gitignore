@@ -10,6 +10,7 @@
 /.vscode
 /wb/node_modules
 /AutoHotkey
+/releases
 # ignore files
 CapsLock+hotString.ini
 CapsLock+winsInfo.ini
