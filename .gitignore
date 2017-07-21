@@ -9,6 +9,7 @@
 /clgif
 /.vscode
 /wb/node_modules
+/AutoHotkey
 # ignore files
 CapsLock+hotString.ini
 CapsLock+winsInfo.ini
