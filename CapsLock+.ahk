@@ -4,17 +4,14 @@
    ExitApp
 }
 
-
 IfExist, capslock+icon.ico
 {
 ;freezing icon
-menu, TRAY, Icon, capslock+icon.ico, , 1
+menu, TRAY, Icon, MyCapslock+.ico, , 1
 }
 Menu, Tray, Icon,,, 1
 
-
-
-global CLversion:="Version: 2.7.0.0 | 2016-11-30`n`nCopyright 2016 Chen JunKai" 
+global CLversion:="Version: 0.0.0.1 | 2017-07-22`n`nCopyleft 2017 Amaruk" 
 
 global cClipboardAll ;capslock+ clipboard
 global caClipboardAll ;capslock+alt clipboard
