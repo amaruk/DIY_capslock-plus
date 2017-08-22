@@ -11,7 +11,10 @@ menu, TRAY, Icon, MyCapslock+.ico, , 1
 }
 Menu, Tray, Icon,,, 1
 
-global CLversion:="Version: 0.0.0.1 | 2017-07-22`n`nCopyleft 2017 Amaruk" 
+; Add "ESC" function support
+global CLversion:="Version: 0.0.0.2 | 2017-08-22`n`nCopyleft 2017 Amaruk" 
+; Initial release after fork repository
+;global CLversion:="Version: 0.0.0.1 | 2017-07-22`n`nCopyleft 2017 Amaruk" 
 
 global cClipboardAll ;capslock+ clipboard
 global caClipboardAll ;capslock+alt clipboard

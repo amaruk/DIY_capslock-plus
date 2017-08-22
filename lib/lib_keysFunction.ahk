@@ -21,6 +21,13 @@ keyFunc_run(p){
     return
 }
 
+; ----START: Added after fork github repository
+keyFunc_esc(){
+    SendInput, {Esc}
+    return
+}
+; ----END: Added after fork github repository
+
 keyFunc_mouseSpeedIncrease(){
     global
     mouseSpeed+=1
