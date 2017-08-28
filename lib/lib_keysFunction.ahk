@@ -26,6 +26,11 @@ keyFunc_esc(){
     SendInput, {Esc}
     return
 }
+
+keyFunc_ctrlA(){
+	SendInput, ^{a}
+	return
+}
 ; ----END: Added after fork github repository
 
 keyFunc_mouseSpeedIncrease(){
