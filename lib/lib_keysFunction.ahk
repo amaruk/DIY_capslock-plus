@@ -31,6 +31,11 @@ keyFunc_ctrlA(){
 	SendInput, ^{a}
 	return
 }
+
+keyFunc_ctrlF(){
+	SendInput, ^{f}
+	return
+}
 ; ----END: Added after fork github repository
 
 keyFunc_mouseSpeedIncrease(){
