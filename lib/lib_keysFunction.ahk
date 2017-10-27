@@ -22,6 +22,12 @@ keyFunc_run(p){
 }
 
 ; ----START: Added after fork github repository
+
+keyFunc_mouseRight(){
+	SendInput, {RButton}
+    return
+}
+
 keyFunc_esc(){
     SendInput, {Esc}
     return

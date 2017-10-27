@@ -11,10 +11,12 @@ menu, TRAY, Icon, MyCapslock+.ico, , 1
 }
 Menu, Tray, Icon,,, 1
 
+; Add "Mouse Right Click" function support
+global CLversion:="Version: 0.0.0.5 | 2017-10-27`n`nCopyleft 2017 Amaruk" 
 ; Add "Control+F" function support
-global CLversion:="Version: 0.0.0.4 | 2017-08-28`n`nCopyleft 2017 Amaruk" 
+;global CLversion:="Version: 0.0.0.4 | 2017-08-28`n`nCopyleft 2017 Amaruk" 
 ; Add "Control+A" function support
-global CLversion:="Version: 0.0.0.3 | 2017-08-28`n`nCopyleft 2017 Amaruk" 
+;global CLversion:="Version: 0.0.0.3 | 2017-08-28`n`nCopyleft 2017 Amaruk" 
 ; Add "ESC" function support
 ;global CLversion:="Version: 0.0.0.2 | 2017-08-22`n`nCopyleft 2017 Amaruk" 
 ; Initial release after fork repository
