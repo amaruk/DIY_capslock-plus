@@ -24,7 +24,8 @@ keyFunc_run(p){
 ; ----START: Added after fork github repository
 
 keyFunc_mouseRight(){
-	SendInput, {RButton}
+	; SendInput, {RButton} ;在鼠标所在位置处呼出右键菜单
+    SendInput, +{F10} ;在选中的对象上呼出右键菜单
     return
 }
 
