@@ -338,6 +338,7 @@ keyFunc_copy_1(){
     global
     if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
     {
+        showMsg("COPY DISABLED!")
         CapsLock2:=""
         return
     }
@@ -369,6 +370,7 @@ keyFunc_paste_1(){
     global
     if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
     {
+        showMsg("PASTE DISABLED!")
         CapsLock2:=""
         return
     }
