@@ -88,11 +88,11 @@ keyFunc_moveUp(i:=1){
     if(WinActive("ahk_id" . GuiHwnd))
     {
         ControlFocus, , ahk_id %LV_show_Hwnd%
-        SendInput, {Up %i%}
+        SendPlay, {Up %i%}
         ControlFocus, , ahk_id %editHwnd%
     }
     else
-        SendInput,{up %i%}
+        SendPlay,{up %i%}
     Return
 }
 
@@ -102,11 +102,11 @@ keyFunc_moveDown(i:=1){
     if(WinActive("ahk_id" . GuiHwnd))
     {
         ControlFocus, , ahk_id %LV_show_Hwnd%
-        SendInput, {Down %i%}
+        SendPlay, {Down %i%}
         ControlFocus, , ahk_id %editHwnd%
     }
     else
-        SendInput,{down %i%}
+        SendPlay,{down %i%}
     Return
 }
 
