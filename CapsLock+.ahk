@@ -11,8 +11,10 @@ menu, TRAY, Icon, MyCapslock+.ico, , 1
 }
 Menu, Tray, Icon,,, 1
 
+; Fix the problem that can not select UP/DOWN in OneNote.
+global CLversion:="Version: 0.0.0.8 | 2018-04-23`n`nCopyleft 2018 Amaruk" 
 ; Fix the problem that can not move UP/DOWN in OneNote.
-global CLversion:="Version: 0.0.0.7 | 2018-04-18`n`nCopyleft 2018 Amaruk" 
+;global CLversion:="Version: 0.0.0.7 | 2018-04-18`n`nCopyleft 2018 Amaruk" 
 ; Update "Mouse Right Click" function to trigger menu for current keyboard selection
 ;global CLversion:="Version: 0.0.0.6 | 2018-01-30`n`nCopyleft 2018 Amaruk" 
 ; Add "Mouse Right Click" function support

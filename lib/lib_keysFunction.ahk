@@ -526,13 +526,13 @@ keyFunc_jumpPageBottom(){
 
 
 keyFunc_selectUp(i:=1){
-    SendInput, +{Up %i%}
+    SendPlay, +{Up %i%}
     return
 }
 
 
 keyFunc_selectDown(i:=1){
-    SendInput, +{Down %i%}
+    SendPlay, +{Down %i%}
     return
 }
 
