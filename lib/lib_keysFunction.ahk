@@ -84,29 +84,32 @@ keyFunc_moveRight(){
 
 
 keyFunc_moveUp(i:=1){
-    global
-    if(WinActive("ahk_id" . GuiHwnd))
+    if (winactive("ahk_exe onenote.exe"))
     {
-        ControlFocus, , ahk_id %LV_show_Hwnd%
-        SendPlay, {Up %i%}
-        ControlFocus, , ahk_id %editHwnd%
+        vk_code = 0x26
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
     }
     else
-        SendPlay,{up %i%}
+    {
+        SendInput,{up %i%}
+    }
     Return
 }
 
 
 keyFunc_moveDown(i:=1){
-    global
-    if(WinActive("ahk_id" . GuiHwnd))
+    if (winactive("ahk_exe onenote.exe"))
     {
-        ControlFocus, , ahk_id %LV_show_Hwnd%
-        SendPlay, {Down %i%}
-        ControlFocus, , ahk_id %editHwnd%
+        vk_code = 0x28
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0x0002, "Ptr", 0 )
     }
     else
-        SendPlay,{down %i%}
+        SendInput,{down %i%}
+	
     Return
 }
 
@@ -314,10 +317,17 @@ keyFunc_cut_1(){
     ClipboardOld:=ClipboardAll
     Clipboard:=""
     SendInput, ^{x}
-    ClipWait, 0.1
+    ; TODO: Change from 0.1 to 0.5 as clip wait fails in MS Word.
+    ClipWait, 0.5
     if (ErrorLevel)
     {
-        SendInput,{home}+{End}^{x}
+        ;ErrorLevel might be 1 when nothing is selected for cutting,
+        ;or the cut operation is badly delayed.
+        ;The original design is to cut the whole line when nothing is selected.
+        ;Think a better way to solve the delay problem.
+        MsgBox, , , DelayForCutNotLongEnough, 5
+        ;SendInput,{home}+{End}^{x}
+        SendInput, ^{x}
         ClipWait, 0.1
     }
     if (!ErrorLevel)
@@ -346,7 +356,8 @@ keyFunc_copy_1(){
     ClipboardOld:=ClipboardAll
     Clipboard:=""
     SendInput, ^{insert}
-    ClipWait, 0.1
+    ; TODO: Change from 0.1 to 0.5 as clip wait fails in MS Word.
+    ClipWait, 0.5
     if (ErrorLevel)
     {
         SendInput,{home}+{End}^{insert}{End}
@@ -412,7 +423,8 @@ keyFunc_cut_2(){
     ClipboardOld:=ClipboardAll
     Clipboard:=""
     SendInput, ^{x}
-    ClipWait, 0.1
+    ; TODO: Change from 0.1 to 0.3 as clip wait fails in MS Word.
+    ClipWait, 0.3
     if (ErrorLevel)
     {
         SendInput,{home}+{End}^{x}
@@ -526,14 +538,62 @@ keyFunc_jumpPageBottom(){
 
 
 keyFunc_selectUp(i:=1){
-    SendPlay, +{Up %i%}
-    return
+    if (winactive("ahk_exe onenote.exe"))
+    {
+        ; Press both L and R SHIFT. Single SHIFT doesn't work.
+        vk_code = 0xA0
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        vk_code = 0xA1
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        ; Up
+        vk_code = 0x26
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        ; Release SHIFT and Up
+        vk_code = 0x26
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+        Sleep, 50
+        vk_code = 0xA0
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+        vk_code = 0xA1
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+    }
+    else
+    {
+        SendInput, +{Up %i%}
+    }
+    Return
 }
 
 
 keyFunc_selectDown(i:=1){
-    SendPlay, +{Down %i%}
-    return
+    if (winactive("ahk_exe onenote.exe"))
+    {
+        ; Press both L and R SHIFT. Single SHIFT doesn't work.
+        vk_code = 0xA0
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        vk_code = 0xA1
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        ; Down
+        vk_code = 0x28
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 0, "Ptr", 0 )
+        Sleep, 50
+        ; Release SHIFT and Down
+        vk_code = 0x28
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+        Sleep, 50
+        vk_code = 0xA0
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+        vk_code = 0xA1
+        dllcall("keybd_event","UChar", vk_code, "UChar", 0, "UInt", 2, "Ptr", 0 )
+    }
+    else
+    {
+        SendInput, +{Down %i%}
+    }
+    Return
 }
 
 

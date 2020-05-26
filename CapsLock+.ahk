@@ -11,8 +11,19 @@ menu, TRAY, Icon, MyCapslock+.ico, , 1
 }
 Menu, Tray, Icon,,, 1
 
+; Disable text retrieving when starting the Qbar.
+global CLversion:="Version: 0.0.0.10 | 2020-05-26`n`nCopyleft 2020 Amaruk" 
+; Fix the problem that can not select/move UP/DOWN in OneNote with Win10.
+; VOID keybd_event(
+;    BYTE bVk, // virtual-key code
+;    BYTE bScan, // hardware scan code
+;    DWORD dwFlags, // flags specifying various function options
+;    DWORD dwExtraInfo // additional data associated with keystroke
+;    );
+; Full key code list: https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
+;global CLversion:="Version: 0.0.0.9 | 2020-04-17`n`nCopyleft 2020 Amaruk" 
 ; Fix the problem that can not select UP/DOWN in OneNote.
-global CLversion:="Version: 0.0.0.8 | 2018-04-23`n`nCopyleft 2018 Amaruk" 
+;global CLversion:="Version: 0.0.0.8 | 2018-04-23`n`nCopyleft 2018 Amaruk" 
 ; Fix the problem that can not move UP/DOWN in OneNote.
 ;global CLversion:="Version: 0.0.0.7 | 2018-04-18`n`nCopyleft 2018 Amaruk" 
 ; Update "Mouse Right Click" function to trigger menu for current keyboard selection

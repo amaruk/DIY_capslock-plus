@@ -368,7 +368,11 @@ CLq()
     ifClearFuture:=1
     ;  historyNow:=0   ;对于当前历史指针指向的位置来说，现在是偏未来(1)还是偏过去(-1)还是刚好是当前(0)
 
-    selText:=getSelText() ;调用getSelText()复制文字
+    ; 关闭QBar弹出时自动获取当前选中文字的功能
+    selText:=[""]
+    ; 开启QBar弹出时自动获取当前选中文字的功能
+    ;selText:=getSelText() ;调用getSelText()复制文字
+    
     if(selText) ;如果有选中的文字
     { 
         selText:=A_Space . selText ;在前面加个空格先
